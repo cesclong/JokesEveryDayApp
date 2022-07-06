@@ -6,17 +6,8 @@ import com.google.gson.GsonBuilder
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
-import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.singleOf
-import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import sl.danny.data.JokeDataSource
-import sl.danny.data.RemoteJokeDataSource
-import sl.danny.data.repository.JokeRepository
-import sl.danny.data.repository.JokeRepositoryImpl
-import sl.danny.network.ContextProvider
-import sl.danny.network.IOContextProvider
-import sl.danny.network.MainContextProvider
+import org.koin.ksp.generated.module
 
 object DIManager {
 
@@ -24,20 +15,24 @@ object DIManager {
         startKoin {
             androidLogger()
             androidContext(context)
-            modules(diModules())
+            modules(
+                allDIModules()
+            )
         }
     }
 
-    private fun diModules() = module {
-        single<ContextProvider>(named("main")) { MainContextProvider() }
-        single<ContextProvider>(named("io")) { IOContextProvider() }
+    fun allDIModules(): List<org.koin.core.module.Module> =
+        mutableListOf<org.koin.core.module.Module>().apply {
+            add(
+                module {
+                    single<Gson> { GsonBuilder().setLenient().create() }
+                }
+            )
 
-        single<Gson> {
-            GsonBuilder().setLenient().create()
+            add(
+                DIModules().module
+            )
+
         }
-
-        single<JokeDataSource> { RemoteJokeDataSource(get()) }
-        single<JokeRepository> { JokeRepositoryImpl(get()) }
-    }
-
 }
+

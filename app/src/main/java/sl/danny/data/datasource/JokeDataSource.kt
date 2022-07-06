@@ -2,6 +2,7 @@ package sl.danny.data
 
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
+import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import sl.danny.data.network.Api
@@ -12,6 +13,7 @@ interface JokeDataSource {
 }
 
 
+@Single
 class RemoteJokeDataSource(private val gson: Gson) : JokeDataSource {
     private val api by lazy {
         Retrofit.Builder().apply {
