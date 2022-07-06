@@ -6,7 +6,7 @@ import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import sl.danny.data.network.Api
-import sl.danny.entity.JokeBean
+import sl.danny.bean.JokeBean
 
 interface JokeDataSource {
     suspend fun getJokes(page: Int): List<JokeBean>

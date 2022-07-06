@@ -1,4 +1,4 @@
-package sl.danny.entity
+package sl.danny.bean
 
 data class JokeBean(
     val content: String,

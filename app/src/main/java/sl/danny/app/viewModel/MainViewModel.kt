@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 import org.koin.android.annotation.KoinViewModel
 import org.koin.core.annotation.Named
 import sl.danny.domain.FetchJokeUseCase
-import sl.danny.entity.JokeBean
+import sl.danny.bean.JokeBean
 import sl.danny.network.ContextProvider
 
 sealed class MainUIAction {

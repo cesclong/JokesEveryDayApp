@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import sl.danny.app.viewModel.MainUIAction
 import sl.danny.app.viewModel.MainViewModel
-import sl.danny.entity.JokeBean
+import sl.danny.bean.JokeBean
 
 
 @Composable

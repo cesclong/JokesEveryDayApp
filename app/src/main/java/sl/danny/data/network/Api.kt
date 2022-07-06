@@ -2,7 +2,7 @@ package sl.danny.data.network
 
 import retrofit2.http.GET
 import retrofit2.http.Query
-import sl.danny.entity.JokeResponseDataBean
+import sl.danny.bean.JokeResponseDataBean
 
 interface Api {
     @GET("api/jokes/list")

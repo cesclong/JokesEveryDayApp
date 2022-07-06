@@ -3,7 +3,7 @@ package sl.danny.data.repository
 import org.koin.core.annotation.Single
 import sl.danny.base.BaseRepository
 import sl.danny.data.JokeDataSource
-import sl.danny.entity.JokeBean
+import sl.danny.bean.JokeBean
 
 
 interface JokeRepository : BaseRepository<Int, List<JokeBean>>

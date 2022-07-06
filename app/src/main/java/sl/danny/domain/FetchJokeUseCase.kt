@@ -3,7 +3,7 @@ package sl.danny.domain
 import org.koin.core.annotation.Single
 import sl.danny.base.BaseUseCase
 import sl.danny.data.repository.JokeRepository
-import sl.danny.entity.JokeBean
+import sl.danny.bean.JokeBean
 
 interface FetchJokeUseCase : BaseUseCase<Int, List<JokeBean>>
 
